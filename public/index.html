@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>像素蛋糕年度套餐对比</title>
+<title>Long Term Package Comparisons</title>
 <style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
 </head>
 <body>
-<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="像素蛋糕年度套餐对比" srcdoc="&lt;!doctype html&gt;
-&lt;html lang=&quot;zh-CN&quot;&gt;
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Long Term Package Comparisons" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
 &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
-&lt;title&gt;像素蛋糕年度套餐对比&lt;/title&gt;
+&lt;title&gt;Long Term Package Comparisons&lt;/title&gt;
 &lt;style&gt;:root {
   color-scheme: light dark;
   background-color: var(
@@ -1042,8 +1042,35 @@ html&gt;body{padding:0}&lt;/style&gt;
     #pixcake-long-term-comparisons .pc-plan-data strong { display: block; }
     #pixcake-long-term-comparisons .pc-plan-data strong { margin-top: .2rem; }
     #pixcake-long-term-comparisons .pc-focus { color: var(--green); }
-    #pixcake-long-term-comparisons .pc-upgrade-stat { margin-top: .75rem; }
-    #pixcake-long-term-comparisons .pc-upgrade-stat .viz-stat-value { color: var(--foreground); }
+    #pixcake-long-term-comparisons .pc-upgrade-stat {
+      margin-top: .75rem;
+      border-top: 4px solid var(--yellow);
+    }
+    #pixcake-long-term-comparisons .pc-upgrade-lead {
+      margin-top: .45rem;
+      padding: .55rem .65rem;
+      background: color-mix(in srgb, var(--yellow) 16%, var(--card));
+      border-left: 4px solid var(--yellow);
+      border-radius: 4px;
+    }
+    #pixcake-long-term-comparisons .pc-upgrade-main {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .3rem .65rem;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+    #pixcake-long-term-comparisons .pc-upgrade-main span { white-space: nowrap; }
+    #pixcake-long-term-comparisons .pc-upgrade-main strong {
+      color: var(--green);
+      font-weight: 700;
+    }
+    #pixcake-long-term-comparisons .pc-upgrade-main .pc-marginal-unit {
+      grid-column: 1 / -1;
+      padding-top: .3rem;
+      border-top: 1px solid color-mix(in srgb, var(--yellow) 45%, var(--border));
+      font-size: 1.08rem;
+    }
     #pixcake-long-term-comparisons .pc-upgrade-facts {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1239,8 +1266,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         const priceDifference = high.price - low.price;
         const dailyDifference = priceDifference / 365;
         const imageDifference = high.total - low.total;
-        const capacityRatio = high.total / low.total;
-        const priceRatio = high.price / low.price;
+        const marginalUnit = priceDifference / imageDifference;
         const costReduction = (1 - unit(high) / unit(low)) * 100;
         const equivalentSaving = high.total * unit(low) - high.price;
         const breakEven = Math.ceil(high.price / unit(low) / 100) * 100;
@@ -1261,13 +1287,19 @@ html&gt;body{padding:0}&lt;/style&gt;
               ${planCard(high, true)}
             &lt;/div&gt;
 
-            &lt;section class=&quot;card viz-stat pc-upgrade-stat&quot; aria-label=&quot;两档套餐年度成本差异&quot;&gt;
-              &lt;div class=&quot;text-muted text-small&quot;&gt;选择${high.price}相比${low.price}，价差按365天均摊&lt;/div&gt;
-              &lt;div class=&quot;viz-stat-value tabular-nums&quot;&gt;日均预算约增加¥${dailyDifference.toFixed(1)}&lt;/div&gt;
+            &lt;section class=&quot;card viz-stat pc-upgrade-stat&quot; aria-label=&quot;两档套餐升级差额&quot;&gt;
+              &lt;div class=&quot;text-muted text-small&quot;&gt;从${low.price}套餐升级到${high.price}套餐&lt;/div&gt;
+              &lt;div class=&quot;pc-upgrade-lead&quot;&gt;
+                &lt;div class=&quot;pc-upgrade-main tabular-nums&quot;&gt;
+                  &lt;span&gt;多花&lt;strong&gt;${number(priceDifference)}元&lt;/strong&gt;&lt;/span&gt;
+                  &lt;span&gt;多&lt;strong&gt;${number(imageDifference)}张&lt;/strong&gt;&lt;/span&gt;
+                  &lt;span class=&quot;pc-marginal-unit&quot;&gt;多出张数均价仅&lt;strong&gt;¥${marginalUnit.toFixed(3)}/张&lt;/strong&gt;&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
               &lt;div class=&quot;pc-upgrade-facts&quot;&gt;
                 &lt;div&gt;
-                  &lt;span class=&quot;text-muted text-small&quot;&gt;年度可用量&lt;/span&gt;
-                  &lt;strong class=&quot;tabular-nums&quot;&gt;+${number(imageDifference)}张 · ${ratioText(capacityRatio)}&lt;/strong&gt;
+                  &lt;span class=&quot;text-muted text-small&quot;&gt;日均预算&lt;/span&gt;
+                  &lt;strong class=&quot;tabular-nums&quot;&gt;约多¥${dailyDifference.toFixed(1)}/天&lt;/strong&gt;
                 &lt;/div&gt;
                 &lt;div&gt;
                   &lt;span class=&quot;text-muted text-small&quot;&gt;单张成本&lt;/span&gt;
@@ -1291,21 +1323,27 @@ html&gt;body{padding:0}&lt;/style&gt;
                     &lt;th&gt;权益&lt;/th&gt;
                     &lt;th class=&quot;text-end&quot;&gt;${low.price}套餐&lt;/th&gt;
                     &lt;th class=&quot;text-end&quot;&gt;${high.price}套餐&lt;/th&gt;
-                    &lt;th class=&quot;text-end&quot;&gt;提升&lt;/th&gt;
+                    &lt;th class=&quot;text-end&quot;&gt;差异&lt;/th&gt;
                   &lt;/tr&gt;
                 &lt;/thead&gt;
                 &lt;tbody&gt;
                   &lt;tr&gt;
-                    &lt;td&gt;修图张数&lt;/td&gt;
+                    &lt;td&gt;当前价格&lt;/td&gt;
+                    &lt;td class=&quot;text-end&quot;&gt;${number(low.price)}元/年&lt;/td&gt;
+                    &lt;td class=&quot;text-end&quot;&gt;&lt;strong&gt;${number(high.price)}元/年&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td class=&quot;text-end&quot;&gt;多${number(priceDifference)}元&lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;总修图张数&lt;/td&gt;
                     &lt;td class=&quot;text-end&quot;&gt;${number(low.total)}张&lt;/td&gt;
                     &lt;td class=&quot;text-end&quot;&gt;&lt;strong class=&quot;pc-focus&quot;&gt;${number(high.total)}张&lt;/strong&gt;&lt;/td&gt;
-                    &lt;td class=&quot;text-end&quot;&gt;${ratioText(capacityRatio)}&lt;/td&gt;
+                    &lt;td class=&quot;text-end&quot;&gt;&lt;strong class=&quot;pc-focus&quot;&gt;多${number(imageDifference)}张&lt;/strong&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                   &lt;tr&gt;
                     &lt;td&gt;赠送张数&lt;/td&gt;
                     &lt;td class=&quot;text-end&quot;&gt;${low.gift ? `${number(low.gift)}张` : &#x27;无&#x27;}&lt;/td&gt;
                     &lt;td class=&quot;text-end&quot;&gt;&lt;strong class=&quot;pc-focus&quot;&gt;${number(high.gift)}张&lt;/strong&gt;&lt;/td&gt;
-                    &lt;td class=&quot;text-end&quot;&gt;+${number(giftIncrease)}张&lt;/td&gt;
+                    &lt;td class=&quot;text-end&quot;&gt;多${number(giftIncrease)}张&lt;/td&gt;
                   &lt;/tr&gt;
                   &lt;tr&gt;
                     &lt;td&gt;单张成本&lt;/td&gt;
@@ -1336,12 +1374,6 @@ html&gt;body{padding:0}&lt;/style&gt;
                     &lt;td class=&quot;text-end&quot;&gt;${number(low.video)}点&lt;/td&gt;
                     &lt;td class=&quot;text-end&quot;&gt;&lt;strong class=&quot;pc-focus&quot;&gt;${number(high.video)}点&lt;/strong&gt;&lt;/td&gt;
                     &lt;td class=&quot;text-end&quot;&gt;${deltaText(low.video, high.video)}&lt;/td&gt;
-                  &lt;/tr&gt;
-                  &lt;tr&gt;
-                    &lt;td&gt;主要功能&lt;/td&gt;
-                    &lt;td class=&quot;text-end&quot;&gt;全部包含&lt;/td&gt;
-                    &lt;td class=&quot;text-end&quot;&gt;全部包含&lt;/td&gt;
-                    &lt;td class=&quot;text-end&quot;&gt;相同&lt;/td&gt;
                   &lt;/tr&gt;
                 &lt;/tbody&gt;
                 &lt;/table&gt;

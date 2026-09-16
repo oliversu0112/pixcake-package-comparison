@@ -1018,7 +1018,10 @@ html&gt;body{padding:0}&lt;/style&gt;
       margin-top: .75rem;
     }
     #pixcake-long-term-comparisons .pc-view { margin-top: .9rem; }
-    #pixcake-long-term-comparisons .pc-plans { margin-top: .75rem; }
+    #pixcake-long-term-comparisons .pc-plans {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: .75rem;
+    }
     #pixcake-long-term-comparisons .pc-plan-top {
       display: flex;
       align-items: center;
@@ -1045,35 +1048,47 @@ html&gt;body{padding:0}&lt;/style&gt;
     #pixcake-long-term-comparisons .pc-upgrade-stat {
       margin-top: .75rem;
       border-top: 4px solid var(--yellow);
+      justify-content: center;
     }
     #pixcake-long-term-comparisons .pc-upgrade-lead {
-      margin-top: .45rem;
-      padding: .55rem .65rem;
+      grid-column: 1 / -1;
+      margin-top: .75rem;
+      padding: .7rem .8rem;
       background: color-mix(in srgb, var(--yellow) 16%, var(--card));
       border-left: 4px solid var(--yellow);
       border-radius: 4px;
     }
     #pixcake-long-term-comparisons .pc-upgrade-main {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .3rem .65rem;
-      line-height: 1.35;
-      font-weight: 600;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    #pixcake-long-term-comparisons .pc-upgrade-main span { white-space: nowrap; }
-    #pixcake-long-term-comparisons .pc-upgrade-main strong {
+    #pixcake-long-term-comparisons .pc-upgrade-metric {
+      min-width: 0;
+      padding: 0 .8rem;
+    }
+    #pixcake-long-term-comparisons .pc-upgrade-metric:first-child { padding-left: 0; }
+    #pixcake-long-term-comparisons .pc-upgrade-metric:last-child { padding-right: 0; }
+    #pixcake-long-term-comparisons .pc-upgrade-metric + .pc-upgrade-metric {
+      border-left: 1px solid color-mix(in srgb, var(--yellow) 50%, var(--border));
+    }
+    #pixcake-long-term-comparisons .pc-upgrade-value {
+      display: flex;
+      align-items: baseline;
+      gap: .2rem;
+      margin-top: .2rem;
+      white-space: nowrap;
+    }
+    #pixcake-long-term-comparisons .pc-upgrade-prefix {
+      color: var(--foreground);
+      font-size: var(--font-size-normal);
+      font-weight: 500;
+    }
+    #pixcake-long-term-comparisons .pc-upgrade-value strong {
       color: var(--green);
-      font-weight: 700;
-    }
-    #pixcake-long-term-comparisons .pc-upgrade-main .pc-marginal-unit {
-      grid-column: 1 / -1;
-      padding-top: .3rem;
-      border-top: 1px solid color-mix(in srgb, var(--yellow) 45%, var(--border));
-      font-size: 1.08rem;
     }
     #pixcake-long-term-comparisons .pc-upgrade-facts {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: .75rem;
       margin-top: .55rem;
     }
@@ -1138,7 +1153,20 @@ html&gt;body{padding:0}&lt;/style&gt;
         margin-top: .75rem;
       }
       #pixcake-long-term-comparisons .pc-top-grid .pc-plans,
-      #pixcake-long-term-comparisons .pc-top-grid .pc-upgrade-stat { margin-top: 0; }
+      #pixcake-long-term-comparisons .pc-top-grid .pc-upgrade-stat,
+      #pixcake-long-term-comparisons .pc-top-grid .pc-upgrade-lead { margin-top: 0; }
+      #pixcake-long-term-comparisons .pc-top-grid .pc-plans {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      #pixcake-long-term-comparisons .pc-top-grid .pc-upgrade-stat {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      #pixcake-long-term-comparisons .pc-top-grid .pc-upgrade-lead {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
       #pixcake-long-term-comparisons .pc-top-grid .pc-upgrade-facts {
         grid-template-columns: 1fr;
         gap: .4rem;
@@ -1170,6 +1198,17 @@ html&gt;body{padding:0}&lt;/style&gt;
       #pixcake-long-term-comparisons .pc-tabs .btn { width: 100%; }
       #pixcake-long-term-comparisons .pc-tabs .btn:last-child:nth-child(odd) { grid-column: 1 / -1; }
       #pixcake-long-term-comparisons .pc-plans { grid-template-columns: 1fr; }
+      #pixcake-long-term-comparisons .pc-upgrade-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      #pixcake-long-term-comparisons .pc-upgrade-metric:nth-child(2) { padding-right: 0; }
+      #pixcake-long-term-comparisons .pc-upgrade-metric:last-child {
+        grid-column: 1 / -1;
+        margin-top: .55rem;
+        padding: .55rem 0 0;
+        border-top: 1px solid color-mix(in srgb, var(--yellow) 50%, var(--border));
+        border-left: 0;
+      }
       #pixcake-long-term-comparisons .pc-upgrade-facts { grid-template-columns: 1fr; }
       #pixcake-long-term-comparisons .pc-recommend-grid { grid-template-columns: 1fr; gap: .9rem; }
     }
@@ -1264,7 +1303,6 @@ html&gt;body{padding:0}&lt;/style&gt;
         const low = plans[lowKey];
         const high = plans[highKey];
         const priceDifference = high.price - low.price;
-        const dailyDifference = priceDifference / 365;
         const imageDifference = high.total - low.total;
         const marginalUnit = priceDifference / imageDifference;
         const costReduction = (1 - unit(high) / unit(low)) * 100;
@@ -1287,27 +1325,33 @@ html&gt;body{padding:0}&lt;/style&gt;
               ${planCard(high, true)}
             &lt;/div&gt;
 
-            &lt;section class=&quot;card viz-stat pc-upgrade-stat&quot; aria-label=&quot;两档套餐升级差额&quot;&gt;
-              &lt;div class=&quot;text-muted text-small&quot;&gt;从${low.price}套餐升级到${high.price}套餐&lt;/div&gt;
-              &lt;div class=&quot;pc-upgrade-lead&quot;&gt;
-                &lt;div class=&quot;pc-upgrade-main tabular-nums&quot;&gt;
-                  &lt;span&gt;多花&lt;strong&gt;${number(priceDifference)}元&lt;/strong&gt;&lt;/span&gt;
-                  &lt;span&gt;多&lt;strong&gt;${number(imageDifference)}张&lt;/strong&gt;&lt;/span&gt;
-                  &lt;span class=&quot;pc-marginal-unit&quot;&gt;多出张数均价仅&lt;strong&gt;¥${marginalUnit.toFixed(3)}/张&lt;/strong&gt;&lt;/span&gt;
+            &lt;section class=&quot;pc-upgrade-lead&quot; aria-label=&quot;升级投入与新增用量&quot;&gt;
+              &lt;div class=&quot;pc-upgrade-main tabular-nums&quot;&gt;
+                &lt;div class=&quot;pc-upgrade-metric&quot;&gt;
+                  &lt;span class=&quot;text-muted text-small&quot;&gt;升级投入&lt;/span&gt;
+                  &lt;div class=&quot;viz-stat-value pc-upgrade-value&quot;&gt;&lt;span class=&quot;pc-upgrade-prefix&quot;&gt;多花&lt;/span&gt;&lt;strong&gt;${number(priceDifference)}元&lt;/strong&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;pc-upgrade-metric&quot;&gt;
+                  &lt;span class=&quot;text-muted text-small&quot;&gt;新增修图张数&lt;/span&gt;
+                  &lt;div class=&quot;viz-stat-value pc-upgrade-value&quot;&gt;&lt;span class=&quot;pc-upgrade-prefix&quot;&gt;多&lt;/span&gt;&lt;strong&gt;${number(imageDifference)}张&lt;/strong&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;pc-upgrade-metric&quot;&gt;
+                  &lt;span class=&quot;text-muted text-small&quot;&gt;新增张数均价&lt;/span&gt;
+                  &lt;div class=&quot;viz-stat-value pc-upgrade-value&quot;&gt;&lt;span class=&quot;pc-upgrade-prefix&quot;&gt;仅&lt;/span&gt;&lt;strong&gt;¥${marginalUnit.toFixed(3)}/张&lt;/strong&gt;&lt;/div&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;section class=&quot;card viz-stat pc-upgrade-stat&quot; aria-label=&quot;升级后长期价值&quot;&gt;
+              &lt;strong&gt;升级后的长期价值&lt;/strong&gt;
               &lt;div class=&quot;pc-upgrade-facts&quot;&gt;
                 &lt;div&gt;
-                  &lt;span class=&quot;text-muted text-small&quot;&gt;日均预算&lt;/span&gt;
-                  &lt;strong class=&quot;tabular-nums&quot;&gt;约多¥${dailyDifference.toFixed(1)}/天&lt;/strong&gt;
-                &lt;/div&gt;
-                &lt;div&gt;
                   &lt;span class=&quot;text-muted text-small&quot;&gt;单张成本&lt;/span&gt;
-                  &lt;strong class=&quot;tabular-nums pc-focus&quot;&gt;降低${costReduction.toFixed(1)}%&lt;/strong&gt;
+                  &lt;strong class=&quot;viz-stat-value tabular-nums pc-focus&quot;&gt;降低${costReduction.toFixed(1)}%&lt;/strong&gt;
                 &lt;/div&gt;
                 &lt;div&gt;
                   &lt;span class=&quot;text-muted text-small&quot;&gt;按${low.price}套餐成本折算&lt;/span&gt;
-                  &lt;strong class=&quot;tabular-nums pc-focus&quot;&gt;用满预计省${money(equivalentSaving)}&lt;/strong&gt;
+                  &lt;strong class=&quot;viz-stat-value tabular-nums pc-focus&quot;&gt;用满预计省${money(equivalentSaving)}&lt;/strong&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
             &lt;/section&gt;

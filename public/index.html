@@ -1109,13 +1109,20 @@ html&gt;body{padding:0}&lt;/style&gt;
     #pixcake-long-term-comparisons .pc-recommend {
       border-top: 4px solid var(--yellow);
     }
-    #pixcake-long-term-comparisons .pc-recommend-grid {
+    #pixcake-long-term-comparisons .pc-benefit-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: .6rem;
+      gap: .55rem;
+      margin: .55rem 0 0;
+      padding-left: 1.25rem;
     }
-    #pixcake-long-term-comparisons .pc-recommend-grid p { margin: .3rem 0 0; }
+    #pixcake-long-term-comparisons .pc-benefit-list li {
+      padding-left: .15rem;
+    }
+    #pixcake-long-term-comparisons .pc-benefit-list li::marker,
+    #pixcake-long-term-comparisons .pc-benefit-list strong {
+      color: var(--green);
+      font-weight: 500;
+    }
     #pixcake-long-term-comparisons .pc-bottom-line {
       margin-top: .75rem;
       padding-top: .75rem;
@@ -1185,10 +1192,6 @@ html&gt;body{padding:0}&lt;/style&gt;
         align-items: start;
       }
       #pixcake-long-term-comparisons .pc-lower-grid .pc-section { margin-top: .75rem; }
-      #pixcake-long-term-comparisons .pc-lower-grid .pc-recommend-grid {
-        grid-template-columns: 1fr;
-        gap: .55rem;
-      }
     }
     @media (max-width: 520px) {
       #pixcake-long-term-comparisons .pc-tabs {
@@ -1210,7 +1213,6 @@ html&gt;body{padding:0}&lt;/style&gt;
         border-left: 0;
       }
       #pixcake-long-term-comparisons .pc-upgrade-facts { grid-template-columns: 1fr; }
-      #pixcake-long-term-comparisons .pc-recommend-grid { grid-template-columns: 1fr; gap: .9rem; }
     }
   &lt;/style&gt;
 
@@ -1307,7 +1309,6 @@ html&gt;body{padding:0}&lt;/style&gt;
         const marginalUnit = priceDifference / imageDifference;
         const costReduction = (1 - unit(high) / unit(low)) * 100;
         const equivalentSaving = high.total * unit(low) - high.price;
-        const breakEven = Math.ceil(high.price / unit(low) / 100) * 100;
         const giftIncrease = high.gift - low.gift;
         const title = `${low.price} vs ${high.price} 套餐对比`;
         const payment = high.payment
@@ -1425,17 +1426,12 @@ html&gt;body{padding:0}&lt;/style&gt;
             &lt;/section&gt;
 
             &lt;section class=&quot;pc-section pc-recommend&quot;&gt;
-              &lt;h3&gt;老客户续费常见问题梳理&lt;/h3&gt;
-              &lt;div class=&quot;pc-recommend-grid&quot;&gt;
-                &lt;div&gt;
-                  &lt;strong&gt;用量较少或不稳定&lt;/strong&gt;
-                  &lt;p class=&quot;text-muted&quot;&gt;若全年用量明显低于${number(breakEven)}张，可优先考虑${low.price}套餐，减少额度闲置。&lt;/p&gt;
-                &lt;/div&gt;
-                &lt;div&gt;
-                  &lt;strong&gt;用量稳定或持续增长&lt;/strong&gt;
-                  &lt;p class=&quot;text-muted&quot;&gt;若全年用量接近或超过${number(breakEven)}张，可重点考虑${high.price}套餐，单张成本优势开始体现。&lt;/p&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
+              &lt;h3&gt;老客户续费额外权益&lt;/h3&gt;
+              &lt;ol class=&quot;pc-benefit-list&quot;&gt;
+                &lt;li&gt;&lt;strong&gt;充值参与像素值累计&lt;/strong&gt;，可叠加会员权益&lt;/li&gt;
+                &lt;li&gt;有效期内：&lt;strong&gt;ai 追色、调色、创意功能免费&lt;/strong&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;修图大礼包&lt;/strong&gt;「预设、素材、课程」免费领取&lt;/li&gt;
+              &lt;/ol&gt;
               &lt;div class=&quot;pc-bottom-line&quot;&gt;若全年可用到${number(high.total)}张，${high.price}套餐按${low.price}套餐单张成本折算，预计节省${money(equivalentSaving)}，并获得更多附加权益。&lt;/div&gt;
               ${payment}
               &lt;p class=&quot;pc-note text-muted text-small&quot;&gt;测算口径：单张成本=套餐价÷到账张数；节省金额按${low.price}套餐单张成本折算。优惠、分期和权益以购买页面为准，建议结合实际年用量选择。&lt;/p&gt;

@@ -1189,9 +1189,21 @@ html&gt;body{padding:0}&lt;/style&gt;
         display: grid;
         grid-template-columns: minmax(0, 1.35fr) minmax(300px, .75fr);
         gap: 1rem;
-        align-items: start;
+        align-items: stretch;
       }
       #pixcake-long-term-comparisons .pc-lower-grid .pc-section { margin-top: .75rem; }
+      #pixcake-long-term-comparisons .pc-lower-grid .pc-recommend {
+        display: flex;
+        flex-direction: column;
+      }
+      #pixcake-long-term-comparisons .pc-lower-grid .pc-recommend .pc-benefit-list {
+        flex: 1;
+        align-content: space-evenly;
+        margin: .25rem 0 .4rem;
+      }
+      #pixcake-long-term-comparisons .pc-lower-grid .pc-recommend .pc-bottom-line {
+        margin-top: 0;
+      }
     }
     @media (max-width: 520px) {
       #pixcake-long-term-comparisons .pc-tabs {
